@@ -1,0 +1,34 @@
+{
+    "name": "ChallengeWeek2Actions",
+    "maps": [
+        {
+            "name": "Challenge",
+            "id": "62858438-85c8-4325-9914-909dd12753c1",
+            "actions": [
+                {
+                    "name": "Space",
+                    "type": "Button",
+                    "id": "3a756170-c8f5-4e63-9eb0-dbbab8c0095f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "96b3fb84-0765-496b-ac5e-ad76e73d6834",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
