@@ -8,7 +8,7 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
     private AudioSource bgmSource;
-    [SerializeField][Range(0f, 1f)] private float bgmVolume = 1.0f;
+    [SerializeField][Range(0f, 1f)] private float bgmVolume = 0.3f;
 
     protected override void Awake()
     {
@@ -32,6 +32,11 @@ public class AudioManager : Singleton<AudioManager>
     {
         if (bgmSource.volume != value)
             bgmSource.volume = value;
+    }
+
+    public void SetVolume(float value)
+    {
+        VolumeUpdate(value);
     }
 
     public void PlayBgm()

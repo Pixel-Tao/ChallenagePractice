@@ -13,7 +13,7 @@ public class InputRebinder : MonoBehaviour
     }
 
     // [구현사항 2] ContextMenu 어트리뷰트를 활용해서 인스펙터창에서 적용할 수 있도록 함
-    
+
     [ContextMenu("Rebind")]
     public void RebindSpaceToEscape()
     {
@@ -23,6 +23,18 @@ public class InputRebinder : MonoBehaviour
         // [구현사항 3] 기존 바인딩을 비활성화하고 새 키로 재바인딩
         InputAction test = spaceAction.actionMap.FindAction("Space");
         test.ChangeBinding(0).WithPath("<Keyboard>/escape");
+
+        Debug.Log("Done!");
+    }
+
+    [ContextMenu("Back bind")]
+    public void BackBindSpaceToSpace()
+    {
+        if (spaceAction == null)
+            return;
+
+        InputAction test = spaceAction.actionMap.FindAction("Space");
+        test.ChangeBinding(0).WithPath("<Keyboard>/space");
 
         Debug.Log("Done!");
     }
