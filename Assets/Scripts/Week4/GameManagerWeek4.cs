@@ -13,7 +13,7 @@ public class GameManagerWeek4 : MonoBehaviour
     public PanelPositionType[] panelPositionTypes;
     public InputController inputController;
     private Camera cam;
-    private List<MovePanel> panels;
+    private List<MovePaddle> panels;
 
     private int bestScore;
     private int score;
@@ -43,7 +43,7 @@ public class GameManagerWeek4 : MonoBehaviour
 
     private void CreatePanels()
     {
-        panels = new List<MovePanel>();
+        panels = new List<MovePaddle>();
 
         foreach (PanelPositionType panelPositionType in panelPositionTypes)
         {
@@ -53,14 +53,14 @@ public class GameManagerWeek4 : MonoBehaviour
             GameObject go = new GameObject($"PlayerPanel_{panelPositionType}");
             go.tag = "Player";
             MovementController movement = go.AddComponent<MovementController>();
-            MovePanel playerPanel = go.AddComponent<MovePanel>();
+            MovePaddle playerPanel = go.AddComponent<MovePaddle>();
             playerPanel.SetData(panelPositionType);
             inputController.AddMoveTarget(movement);
             panels.Add(playerPanel);
         }
     }
 
-    public MovePanel GetRandomPanel(MovePanel without)
+    public MovePaddle GetRandomPanel(MovePaddle without)
     {
         int index = Random.Range(0, panels.Count - 1);
         for (int i = 0; i < panels.Count; i++)
@@ -89,7 +89,7 @@ public class GameManagerWeek4 : MonoBehaviour
         go.transform.position = Vector2.zero;
         go.transform.localScale = new Vector3(0.5f, 0.5f, 1);
         Ball ball = go.AddComponent<Ball>();
-        MovePanel panel = panels[Random.Range(0, panels.Count)];
+        MovePaddle panel = panels[Random.Range(0, panels.Count)];
         ball.SetStartTarget(panel);
         ball.Shoot();
     }

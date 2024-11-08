@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
-    private MovePanel targetPanel;
+    private MovePaddle targetPanel;
 
     private float speed = 4f;
     private bool isOut = false;
@@ -43,7 +43,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    public void SetStartTarget(MovePanel target)
+    public void SetStartTarget(MovePaddle target)
     {
         this.targetPanel = target;
     }
@@ -62,7 +62,7 @@ public class Ball : MonoBehaviour
     {
         targetPanel = GameManagerWeek4.Instance.GetRandomPanel(targetPanel);
         Vector3 targetVector = (targetPanel.transform.position - transform.position).normalized;
-        float angle = Random.Range(-25, 25);
+        float angle = Random.Range(-10, 10);
         targetVector = Quaternion.Euler(0, 0, angle) * targetVector;
         Debug.Log($"{targetPanel.name}, {targetPanel.MovementType} dest : {targetVector}");
 

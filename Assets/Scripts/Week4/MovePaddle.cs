@@ -12,7 +12,7 @@ public enum PanelPositionType
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(MovementController))]
-public class MovePanel : MonoBehaviour
+public class MovePaddle : MonoBehaviour
 {
     [SerializeField] private PanelPositionType positionType;
 
@@ -34,7 +34,8 @@ public class MovePanel : MonoBehaviour
     {
         boxCollider.size = Vector2.one;
     }
-
+    
+    
     public void SetData(PanelPositionType positionType)
     {
         Sprite square = Resources.Load<Sprite>("Sprites/Square");
