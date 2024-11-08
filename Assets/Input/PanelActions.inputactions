@@ -1,0 +1,34 @@
+{
+    "name": "PanelActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "4fcfb7c2-856c-4c71-9e4d-dff1470d6808",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "9fca3025-2c8d-49a1-bbe4-75a110e6108b",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10406df7-c2c5-4dd8-8fea-38e513f9da97",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
