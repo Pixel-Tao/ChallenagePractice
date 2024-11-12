@@ -1,20 +1,15 @@
 using UnityEngine;
 
-public class CurveBoomerangProjectile : Projectile
+public class BoomerangProjectile : Projectile
 {
-    // 곡선 높이를 외부에서 조절
-    public float curveHeightOffset = 2f; // 곡선의 높이
-    // 시작 지점 출발한 시간(돌아오는 경우에는 목표지점에서 출발한 시간)
+    public float curveHeightOffset = 2f;
     private float startTime;
-    // 돌아오는 중인지
     private bool returning;
-    // 시작지점과 목표지점 거리
     private float distance;
-
-    // 목표 지점까지 도달하면 시작, 목표 위치는 바뀌어야 함.
-    private Vector3 startPoint; // 시작 위치
-    private Vector3 endPoint; // 목표 위치
-    private float curveHeight; // 곡선 높이 (목표지점까지 도달하면 반대 쪽 곡선을 그리면서 돌아옴)
+    
+    private Vector3 startPoint;
+    private Vector3 endPoint; 
+    private float curveHeight; 
 
     protected override void Update()
     {

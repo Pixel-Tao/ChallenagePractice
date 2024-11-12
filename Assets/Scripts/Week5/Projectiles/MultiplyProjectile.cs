@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MultiplyProjectile : Projectile
 {
-    [Header("¸ÖÆ¼¼¦ ¼³Á¤")]
-    public float spreadAngle; // ¹æ»ç °¢µµ -spreadAngle ~ spreadAngle ±îÁö
-    public int numberOfProjectiles; // ¸ÖÆ¼¼¦ ¼ö
+    public GameObject subProjectilePrefab;
+    
+    [Header("ë°©ì‚¬ ë²”ìœ„")]
+    public float spreadAngle;
+    public int numberOfProjectiles;
 
     protected override void Move()
     {
@@ -22,13 +24,14 @@ public class MultiplyProjectile : Projectile
 
         for (int i = 0; i < numberOfProjectiles; i++)
         {
-            GameObject go = new GameObject("MultiplyLinearProjectile");
-            LinearProjectile projectile = go.AddComponent<LinearProjectile>();
+            GameObject go = PoolManager.Instance.Spawn(subProjectilePrefab, transform.position);
+            go.name = "MultiplyLinearProjectile";
+            Projectile projectile = go.GetComponent<LinearProjectile>();
             projectile.direction = direction;
             float angle = startAngle + (angleStep * i);
             projectile.direction = Quaternion.Euler(0, 0, angle) * direction;
             projectile.speed = speed;
-            projectile.destroyOnTime = true;
+            projectile.shouldDestroyOnTime = true;
             projectile.Play(startTransform);
         }
     }

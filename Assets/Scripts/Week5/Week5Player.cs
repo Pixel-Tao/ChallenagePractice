@@ -1,70 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using System;
 using UnityEngine;
-
-public enum ProjectileType 
-{ 
-    Linear,
-    RightParabolic,
-    UPParabolic,
-    Multiply,
-    Boomerang,
-    Count
-}
-
 
 public class Week5Player : MonoBehaviour
 {
-    public Projectile projectile;
+    public SkillBook skillBook;
     public Transform target;
-    public TextMeshProUGUI currentText;
-
-    public List<Projectile> projectiles;
-
-    // Start is called before the first frame update
-    void Start()
+    private PlayerInputController inputController;
+    private Camera cam;
+    
+    private Vector3 movePosition;
+    
+    private void Awake()
     {
-        LinearClick();
+        cam = Camera.main;
+        GameManagerWeek5.Instance.player = this;
+        skillBook = GetComponent<SkillBook>();
+        inputController = GetComponent<PlayerInputController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            projectile.gameObject.SetActive(true);
-            projectile.Play(transform, target);
-        }
+        inputController.MoveEvent += Move;
+        QuickSlotManagerWeek5.Instance.QuickSlotButtonPressed -= UseSkill;
+        QuickSlotManagerWeek5.Instance.QuickSlotButtonPressed += UseSkill;
     }
 
-    public void LinearClick()
+    private void Update()
     {
-        projectile = projectiles[(int)ProjectileType.Linear];
-        currentText.text = $"Current : {ProjectileType.Linear}";
+        transform.position = movePosition;
     }
 
-    public void RightParabolicClick()
+    private void Move(Vector2 position)
     {
-        projectile = projectiles[(int)ProjectileType.RightParabolic];
-        currentText.text = $"Current : {ProjectileType.RightParabolic}";
+        movePosition = cam.ScreenToWorldPoint(position);
+        movePosition.z = 0f;
     }
 
-    public void UpParabolcClick()
+    private void UseSkill(int skillId)
     {
-        projectile = projectiles[(int)ProjectileType.UPParabolic];
-        currentText.text = $"Current : {ProjectileType.UPParabolic}";
+        skillBook.InvokeExecute(skillId, target);
     }
-
-    public void MultiplyClick()
-    {
-        projectile = projectiles[(int)ProjectileType.Multiply];
-        currentText.text = $"Current : {ProjectileType.Multiply}";
-    }
-
-    public void BoomerangClick()
-    {
-        projectile = projectiles[(int)ProjectileType.Boomerang];
-        currentText.text = $"Current : {ProjectileType.Boomerang}";
-    }
-} 
+}

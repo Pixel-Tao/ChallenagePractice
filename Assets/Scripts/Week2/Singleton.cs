@@ -8,6 +8,15 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<T>();
+                if (instance == null)
+                {
+                    instance = new GameObject(typeof(T).Name).AddComponent<T>();
+                }
+            }
+            
             // get instance of singleton
             return instance;
         }
@@ -15,9 +24,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // make it as dontdestroyobject        
         instance = this as T;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Say()

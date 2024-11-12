@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ParabolicProjectile : Projectile
 {
-    [Header("Æ÷¹°¼± °¢µµ")]
+    [Header("ì„¤ì • ê°’")]
     [Range(0f, 360f)] public float shootAngle = 45;
     [Range(0f, 20f)] public float force = 7;
-    [Header("¼Óµµ")]
+    [Header("ë°œì‚¬ ì†ë„")]
     [SerializeField] private Vector3 initVelocity;
 
     private float elapaedTime = 0;

@@ -5,7 +5,7 @@ public abstract class Projectile : MonoBehaviour
 {
     public float speed = 2;
     public float playTime = 2f;
-    public bool destroyOnTime;
+    public bool shouldDestroyOnTime;
     public Vector3 direction;
 
     private float timer = 0;
@@ -44,7 +44,9 @@ public abstract class Projectile : MonoBehaviour
     public virtual void Play(Transform startTransform, Transform targetTransform)
     {
         if (IsPlaying) return;
-
+        if (!gameObject.activeInHierarchy)
+            gameObject.SetActive(true);
+        
         IsPlaying = true;
         this.startPosition = startTransform.position;
         this.targetTransform = targetTransform;
@@ -55,6 +57,8 @@ public abstract class Projectile : MonoBehaviour
     public virtual void Play(Transform startTransform)
     {
         if (IsPlaying) return;
+        if (!gameObject.activeInHierarchy)
+            gameObject.SetActive(true);
 
         IsPlaying = true;
         this.startPosition = startTransform.position;
@@ -63,9 +67,9 @@ public abstract class Projectile : MonoBehaviour
 
     protected void Destroy()
     {
-        if (destroyOnTime)
+        if (shouldDestroyOnTime)
             Destroy(gameObject);
         else
-            gameObject.SetActive(false);
+            PoolManager.Instance.Despawn(gameObject);
     }
 }

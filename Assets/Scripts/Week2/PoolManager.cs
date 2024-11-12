@@ -23,6 +23,18 @@ public class PoolManager : Singleton<PoolManager>
 
         return pool;
     }
+    
+    public GameObject Spawn(GameObject prefab, Vector3 pos)
+    {
+        if (pools.TryGetValue(prefab.name, out ObjectPool pool) == false)
+        {
+            pool = CreatePool(prefab.name, prefab);
+        }
+
+        GameObject go = pool.Spawn();
+        go.transform.position = pos;
+        return go;
+    }
 
     public GameObject Spawn(string name, Vector3 pos)
     {
@@ -43,6 +55,7 @@ public class PoolManager : Singleton<PoolManager>
         if (pools.TryGetValue(go.name, out ObjectPool pool) == false)
         {
             Debug.LogWarning("Pool with name " + go.name + " does not exist");
+            Destroy(go);
             return;
         }
 
