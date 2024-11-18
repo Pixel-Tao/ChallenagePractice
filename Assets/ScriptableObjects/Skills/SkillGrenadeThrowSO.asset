@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71684cd172ed474ab3e5d8777418dc0d, type: 3}
   m_Name: SkillGrenadeThrowSO
   m_EditorClassIdentifier: 
-  id: 102
+  id: 101
   projectilePrefab: {fileID: 3098803973315131787, guid: a84d5b216f68405459594050419323bc, type: 3}
-  displayName: "\uB2E8\uAC80 \uB0A0\uB9AC\uAE30"
-  description: "\uB2E8\uAC80\uC744 \uC9C1\uC120\uC73C\uB85C \uB0A0\uB9BC"
-  cooldown: 0.5
+  displayName: "\uC218\uB958\uD0C4 \uD22C\uCC99"
+  description: "\uC218\uB958\uD0C4\uC744 \uACE1\uC120\uC73C\uB85C \uB0A0\uB9BC"
+  cooldown: 1
   damage: 1
   skillClassName: SkillGrenadeThrow

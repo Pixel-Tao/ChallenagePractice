@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71684cd172ed474ab3e5d8777418dc0d, type: 3}
   m_Name: SkillDaggerThrowSO
   m_EditorClassIdentifier: 
-  id: 101
+  id: 102
   projectilePrefab: {fileID: 8993794584456049988, guid: 6a9d6bd9436750b42bfe86e8f3a12d65, type: 3}
-  displayName: "\uC218\uB958\uD0C4 \uD22C\uCC99"
-  description: "\uC218\uB958\uD0C4\uC744 \uACE1\uC120\uC73C\uB85C \uB0A0\uB9BC"
-  cooldown: 1
+  displayName: "\uB2E8\uAC80 \uB0A0\uB9AC\uAE30"
+  description: "\uB2E8\uAC80\uC744 \uC9C1\uC120\uC73C\uB85C \uB0A0\uB9BC"
+  cooldown: 0.5
   damage: 1
   skillClassName: SkillDaggerThrow

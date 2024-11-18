@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 820264975}
   - component: {fileID: 820264974}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SkillQuickSlotText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
