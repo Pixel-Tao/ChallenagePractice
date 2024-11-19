@@ -31,6 +31,9 @@ public class SkillBook : MonoBehaviour
         string skillClassName = skillSO.skillClassName;
         Type type = Type.GetType(skillClassName);
         if (type == null) return null;
+        // 플랫폼에 따라서 Activator.CreateInstance 를 사용할 수 없는 경우가 있음
+        // AOT 빌드를 사용하는 경우, Reflection.Emit을 사용하여 동적으로 생성된 형식을 만들 수 없음
+        // WebGL, iOS 등에서 제한이 생길 수 있음.
         SkillCommandBase skillCommand = Activator.CreateInstance(type) as SkillCommandBase;
         
         // 한가지 생각 볼것 skillClassName 가 없다면
