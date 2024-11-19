@@ -10,7 +10,7 @@ public class SkillBoomerang : SkillCommandBase
         
         Debug.Log("Boomerang Throw!");
         GameObject go = PoolManager.Instance.Spawn(skillSO.projectilePrefab, owner.position);
-        Projectile projectile = go.GetComponent<BoomerangProjectile>();
+        Projectile projectile = go.GetComponent<Projectile>();
         projectile.Play(owner.transform, target);
         base.Execute();
     }

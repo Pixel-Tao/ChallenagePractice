@@ -10,7 +10,7 @@ public class SkillDaggerThrow : SkillCommandBase
         
         Debug.Log("Dagger Throw!");
         GameObject go = PoolManager.Instance.Spawn(skillSO.projectilePrefab, owner.position);
-        Projectile projectile = go.GetComponent<LinearProjectile>();
+        Projectile projectile = go.GetComponent<Projectile>();
         projectile.Play(owner.transform, target);
         base.Execute();
     }

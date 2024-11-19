@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
+            // name = 1 or 2 or 3 or 4
             if (int.TryParse(context.control.name, out int key))
                 QuickSlotManagerWeek5.Instance.PressQuickSlotButton((QuickSlotKey)key);
         }

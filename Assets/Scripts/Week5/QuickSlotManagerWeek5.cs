@@ -37,8 +37,9 @@ public class QuickSlotManagerWeek5 : Singleton<QuickSlotManagerWeek5>
             return;
 
         quickSlotMap[key] = skillId;
+        // 장착되었다는 것을 알리기 위한 이벤트 (UI 갱신용)
         QuickSlotAssigned?.Invoke(key, skillId);
-
+        // 현재는 텍스트로 퀵슬롯을 보여주기 때문에 텍스트만 갱신 
         Refresh();
     }
 
@@ -55,6 +56,7 @@ public class QuickSlotManagerWeek5 : Singleton<QuickSlotManagerWeek5>
 
     public void PressQuickSlotButton(QuickSlotKey key)
     {
+        // TryGetValue로 해도 상관 없음
         if (quickSlotMap.ContainsKey(key))
             QuickSlotButtonPressed?.Invoke(quickSlotMap[key]);
     }

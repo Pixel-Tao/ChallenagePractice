@@ -10,7 +10,7 @@ public class SkillMultishot : SkillCommandBase
         
         Debug.Log("Multishot!");
         GameObject go = PoolManager.Instance.Spawn(skillSO.projectilePrefab, owner.position);
-        Projectile projectile = go.GetComponent<MultiplyProjectile>();
+        Projectile projectile = go.GetComponent<Projectile>();
         projectile.Play(owner.transform, target);
         base.Execute();
     }
